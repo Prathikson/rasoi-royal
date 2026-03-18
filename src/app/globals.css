@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:    #f8f6f2;
+  --bg2:   #f2ede4;
+  --bg3:   #e8e0cc;
+  --white: #ffffff;
+  --fg:    #1c1612;
+  --fg2:   #5a4e40;
+  --fg3:   #a89880;
+  --gold:  #b07d2e;
+  --gold2: #c89a4a;
+  --border:  rgba(28,22,18,0.08);
+  --border2:  rgba(28,22,18,0.08);
+  --border-g:rgba(176,125,46,0.18);
+  --dark:  #141008;
+  --dark2: #1e1810;
+  --card:  #ffffff;
+  --radius:8px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-jost),sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+body.no-scroll{overflow:hidden}
+
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── Fonts ── */
+/* Heading: bold jost + italic playfair mixed inline */
+.t-hero{
+  font-size:clamp(56px,10vw,152px);
+  font-weight:400;
+  letter-spacing:-0.03em;
+  line-height:0.9;
+}
+.t-xl{
+  font-size:clamp(40px,6.5vw,108px);
+  font-weight:400;
+  letter-spacing:-0.025em;
+  line-height:0.95;
+}
+.t-lg{
+  font-size:clamp(30px,4.5vw,72px);
+  font-weight:400;
+  letter-spacing:-0.02em;
+  line-height:1.0;
+}
+.t-md{
+  font-size:clamp(20px,2.8vw,42px);
+  font-weight:400;
+  letter-spacing:-0.015em;
+  line-height:1.1;
+}
+
+/* Heading: bold sans */
+.sans-bold{font-family:var(--font-jost),sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-0.02em}
+/* Heading: italic serif */
+.serif-italic{font-family:var(--font-playfair),serif;font-style:italic;font-weight:400}
+/* Label */
+.lbl{
+  font-family:var(--font-jost),sans-serif;
+  font-size:10px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.24em;
+  color:var(--fg3);
+}
+.lbl-gold{color:var(--gold)}
+/* Body */
+.body-sm{font-family:var(--font-jost),sans-serif;font-size:13px;font-weight:300;line-height:1.75;color:var(--fg2)}
+.body-md{font-family:var(--font-jost),sans-serif;font-size:15px;font-weight:300;line-height:1.8;color:var(--fg2)}
+
+/* ── Buttons ── */
+.btn-reserve{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-jost),sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--fg);background:var(--white);
+  border:1px solid var(--border);border-radius:100px;
+  padding:11px 24px;cursor:pointer;
+  transition:all 0.25s;white-space:nowrap;
+  text-decoration:none;
+}
+.btn-reserve:hover{background:var(--fg);color:var(--white);border-color:var(--fg)}
+
+/* On dark bg */
+.btn-reserve-light{
+  color:var(--white);background:transparent;
+  border-color:rgba(255,255,255,0.3);
+}
+.btn-reserve-light:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.6);color:var(--white)}
+
+.btn-dark{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-jost),sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);background:var(--fg);
+  border:none;border-radius:100px;padding:12px 26px;
+  cursor:pointer;transition:opacity 0.2s;text-decoration:none;
+}
+.btn-dark:hover{opacity:0.78}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-jost),sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--fg);background:transparent;
+  border:1px solid var(--border);border-radius:100px;
+  padding:11px 24px;cursor:pointer;transition:all 0.25s;
+  text-decoration:none;
+}
+.btn-ghost:hover{background:var(--fg);color:var(--white)}
+
+/* ── Cards ── */
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.tag{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-jost),sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--fg);background:rgba(255,255,255,0.92);
+  border-radius:100px;padding:4px 12px;backdrop-filter:blur(8px);
+}
+.divider{height:1px;background:var(--border)}
+
+/* ── Skeleton ── */
+.skeleton{
+  background:linear-gradient(90deg,var(--bg2) 25%,rgba(255,255,255,0.6) 50%,var(--bg2) 75%);
+  background-size:200% 100%;animation:sk 1.8s infinite;
+}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── Grain ── */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:0.016;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:gr 0.35s steps(2) infinite;
+}
+@keyframes gr{0%,100%{transform:translate(0,0)}25%{transform:translate(-1%,2%)}50%{transform:translate(2%,-1%)}75%{transform:translate(-2%,1%)}}
+
+/* ── Golden trail cursor ── */
+.cursor-trail-canvas{
+  position:fixed;inset:0;pointer-events:none;z-index:9999;
+}
+
+/* ── Lenis ── */
+html.lenis{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
